@@ -42,3 +42,12 @@ CALCULATE(
         Dim_Date[date] <= MAX(Dim_Date[date])
     )
 )
+## Measure 3: Store Format Rank
+
+### Copilot's First Suggestion
+```dax
+Store Format Rank = 
+RANKX(
+    Dim_Store_Format,
+    [Total Sales]
+)
