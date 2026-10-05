@@ -40,6 +40,28 @@ table Fact_Sales
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	measure 'Cold Brew Sales' =
+			
+			CALCULATE(
+			    [Total Sales],
+			    Dim_Product[item] = "Cold Brew"
+			)
+		lineageTag: 8df67ddb-b603-48fd-b876-18fadbe31edf
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Store Format Rank' =
+			
+			RANKX(
+			    ALL(Dim_Store_Format[store_format]),
+			    [Total Sales],
+			    ,
+			    DESC,
+			    Dense
+			)
+		formatString: 0
+		lineageTag: 4d093697-181f-4a77-bb06-f0c66cc16323
+
 	column sale_id
 		dataType: int64
 		formatString: 0
