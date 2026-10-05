@@ -1,0 +1,7 @@
+# Project Reflection: AI-Assisted, Version-Controlled BI Development
+
+Working with a full Git commit history and GitHub Copilot significantly altered my approach to building this Power BI solution compared to standard single-file project workflows. Normally, Power BI development happens in a monolithic `.pbix` file where intermediate changes, formula revisions, and structural decisions are overwritten and untracked. By utilizing the Power BI Project (`.pbip`) format and TMDL metadata, every incremental update to the semantic model became auditable, reviewable, and clear.
+
+GitHub Copilot served as an effective assistant for initial DAX syntax generation, providing rapid boilerplate logic for complex functions like `DATEADD` and `RANKX`. However, Copilot's initial outputs frequently required critical domain-specific corrections. For example, Copilot initially generated `ALL` filters that stripped necessary filter context during running total calculations, and referenced raw fact table columns instead of maintaining clean star schema dimension relationships. Correcting these errors required a solid understanding of filter context and evaluation principles.
+
+Maintaining atomic commits for each schema update and DAX measure enforced strong developer discipline. Documenting Copilot's suggestions alongside manual corrections in `NOTES.md` ensured full transparency, producing a robust, auditable BI solution ready for enterprise collaboration.
