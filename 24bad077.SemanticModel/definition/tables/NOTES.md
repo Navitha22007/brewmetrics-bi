@@ -29,3 +29,16 @@ RETURN
         PreviousMonthSales,
         0
     )
+
+## Measure 2: Running Total Sales
+
+### Copilot's First Suggestion
+```dax
+Running Total Sales = 
+CALCULATE(
+    [Total Sales],
+    FILTER(
+        ALL(Dim_Date[date]),
+        Dim_Date[date] <= MAX(Dim_Date[date])
+    )
+)
