@@ -51,3 +51,12 @@ RANKX(
     Dim_Store_Format,
     [Total Sales]
 )
+## Measure 4: Cold Brew Sales
+
+### Copilot's First Suggestion
+```dax
+Cold Brew Sales = 
+CALCULATE(
+    SUM(Fact_Sales[sales_amount]),
+    Fact_Sales[item] = "Cold Brew"
+)
